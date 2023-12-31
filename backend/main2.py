@@ -1,4 +1,4 @@
-#other code i tried 
+ #this is the code
 # fastapi_server.py
 
 from fastapi import FastAPI
