@@ -15,7 +15,7 @@ const App = () => {
       const endDateTime = now.toISOString(); 
 
       // Replace with the actual URL of your FastAPI server
-      const response = await fetch('http://localhost:8000/logs?start_time=${startDateTime}&end_time=${endDateTime}');
+      const response = await fetch('http://localhost:8000/access-logs?start_time=${startDateTime}&end_time=${endDateTime}');
       
       if (!response.ok) {
         throw new Error('Failed to fetch logs');
