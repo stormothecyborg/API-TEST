@@ -1,4 +1,4 @@
-# Install VM > Uuntu files > setup > apache2 > install necessary modules 
+# Install VM > Ubuntu files > setup > apache2 > install necessary modules 
 
 ## "GET / HTTP/1.1" 404 Not Found RESOLVED
 
