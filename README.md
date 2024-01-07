@@ -2,9 +2,48 @@
 
 ## Available Scripts
 
-In the project directory, you can run:
+set your apache2 as reverse proxy 
 
-### `npm start`
+### `sudo nano /etc/apache2/sites-enabled/reverse_proxy.conf`
+
+i have used this, u can also use sudo nano /etc/apache2/sites-available/000-default.conf
+or any other, make sure there is only 1 apache configuration file (for less confusion) use rm <file/path> to DELETE any unnecessary extra files
+
+the file contents: 
+points to note : 1. its okay if u have a different code, just make sure that your CustomLogs <file path> has the same file path when you access your logs using tail -f /var/log/apache2/access.log
+
+
+
+'<VirtualHost *:80>
+        
+        ServerName 127.0.0.1
+
+        DocumentRoot /var/www/html
+
+        <Proxy *>
+        AuthType none
+        AuthBasicAuthoritative Off
+        SetEnv proxy-chain-auth On
+        Order allow,deny
+        Allow from all
+        </Proxy>
+     
+        ProxyPass / http://127.0.0.1:8000/
+        ProxyPassReverse / http://127.0.0.1:8000/
+
+        <Directory /var/www/html>
+        Order deny,allow
+        Allow from all
+        </Directory>
+
+       
+       CustomLog /var/log/apache2/access.log common
+
+
+</VirtualHost>
+
+'
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
