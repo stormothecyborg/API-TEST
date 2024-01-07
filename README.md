@@ -1,6 +1,6 @@
 # Install VM > Uuntu files > setup > apache2 > install necessary modules 
 
-## "GET / HTTP/1.1" 404 Not Found SAVIOUR
+## "GET / HTTP/1.1" 404 Not Found RESOLVED
 
 
 set your apache2 as reverse proxy 
@@ -142,57 +142,22 @@ make sure the endpoints [in my case>>> @app.get("/filtered-logs/") ] are correct
 
 '
 
-### `npm test`
+##apache benchmark 
+'ab -n 1000 -c 100 http://127.0.0.1/filtered-logs/' 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `uvicorn api:app --reload`
+NOTE: my py file name is api, chnage it to ur py file name 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `(http://127.0.0.1:8000/filtered-logs/`
+NOTE: make sure to give your endpoint name from ur fastapi code (in my case ''filtered-logs''
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `tail -f /var/log/apache2/access.log`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+open this in other terminal 
+### `curl /var/log/apache2/access.log`
 
-### `npm run eject`
+#rest is just the frontend , u can look my frontend folder for code 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
