@@ -11,29 +11,28 @@ const App = () => {
     try {
       setLoading(true);
       const now = new Date();
-      const startDateTime = now.toISOString(); // Curren t date and time
-      const endDateTime = now.toISOString(); 
-
-      // Replace with the actual URL of your FastAPI server
-      const response = await fetch('http://localhost:8000/access-logs?start_time=${startDateTime}&end_time=${endDateTime}');
-      
+      const startDateTime = now.toISOString();
+      const endDateTime = now.toISOString();
+  
+      const response = await fetch('http://127.0.0.1:8000/filtered-logs/');
+  
       if (!response.ok) {
         throw new Error('Failed to fetch logs');
       }
-
+  
       const data = await response.json();
       console.log('Data from server:', data);
-
-      setLogs(data.logs);
+  
+      setLogs(data.filtered_logs); // Corrected this line
       console.log('Logs in state:', logs);
-
-
+  
     } catch (error) {
       console.error('Error fetching logs:', error);
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="container">
