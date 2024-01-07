@@ -43,8 +43,7 @@ points to note : 1. its okay if u have a different code, just make sure that you
 
 </VirtualHost>
 
-'
-
+### 'sudo systemctl restart apache2'
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
