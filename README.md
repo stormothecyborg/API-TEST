@@ -1,6 +1,7 @@
 # Install VM > Uuntu files > setup > apache2 > install necessary modules 
 
-## Available Scripts
+## "GET / HTTP/1.1" 404 Not Found SAVIOUR
+
 
 set your apache2 as reverse proxy 
 
