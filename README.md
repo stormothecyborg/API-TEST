@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Install VM > Uuntu files > setup > apache2 > install necessary modules 
 
 ## Available Scripts
 
